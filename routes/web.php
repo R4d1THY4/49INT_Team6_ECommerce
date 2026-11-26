@@ -1,6 +1,30 @@
 <?php
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\VoucherController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
-    return view('welcome');
-})->middleware('auth');
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('vouchers', VoucherController::class);
+    Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
+    Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
+    Route::get('/customer-directory', [CustomerController::class, 'directory'])->name('customers.directory');
+    Route::get('/shipping-directory', [CustomerController::class, 'shipping'])->name('customers.shipping');
+    Route::get('/customers/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
+    Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update');
+    Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
+    Route::post('/customers-reset', [CustomerController::class, 'resetAll'])->name('customers.reset');
+});
+
+require __DIR__.'/auth.php';
