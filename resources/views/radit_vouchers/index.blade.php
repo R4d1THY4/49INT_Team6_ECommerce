@@ -5,6 +5,7 @@
     <title>Voucher List</title>
 </head>
 <body>
+    @include('partials.navbar')
     <h1>Added Vouchers</h1>
     <a href="{{ route('vouchers.create') }}">Add New Voucher</a>
     <br><br>

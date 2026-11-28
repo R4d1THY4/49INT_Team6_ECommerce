@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    @include('partials.navbar')
 
     <h1>Brands</h1>
 

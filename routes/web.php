@@ -28,11 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/customers-reset', [CustomerController::class, 'resetAll'])->name('customers.reset');
     Route::resource('shipments', ShipmentController::class)->except(['show']);
 
-    Route::view('/catalog', 'catalog.index')->name('catalog.index');
-    Route::view('/products', 'catalog.products')->name('catalog.products');
-    Route::view('/products/nike-air-max', 'catalog.product-detail')->name('catalog.nike');
-    Route::view('/products/adidas-ultraboost', 'catalog.adidas-detail')->name('catalog.adidas');
-    Route::view('/brands', 'catalog.brands')->name('catalog.brands');
+    Route::view('/catalog', 'arman_catalog.index')->name('catalog.index');
+    Route::view('/products', 'arman_catalog.products')->name('catalog.products');
+    Route::view('/products/nike-air-max', 'arman_catalog.product-detail')->name('catalog.nike');
+    Route::view('/products/adidas-ultraboost', 'arman_catalog.adidas-detail')->name('catalog.adidas');
+    Route::view('/brands', 'arman_catalog.brands')->name('catalog.brands');
 });
 
 require __DIR__.'/auth.php';

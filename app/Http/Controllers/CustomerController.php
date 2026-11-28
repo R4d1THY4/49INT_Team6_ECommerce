@@ -9,7 +9,7 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        return view('index');
+        return view('shaby_customers.index');
     }
 
     public function store(Request $request)
@@ -42,19 +42,19 @@ class CustomerController extends Controller
     public function directory()
     {
         $customers = Customer::all();
-        return view('customer_directory', compact('customers'));
+        return view('shaby_customers.customer_directory', compact('customers'));
     }
 
     public function shipping()
     {
         $customers = Customer::all();
-        return view('shipping_directory', compact('customers'));
+        return view('shaby_customers.shipping_directory', compact('customers'));
     }
 
     public function edit($id)
     {
         $customer = Customer::findOrFail($id);
-        return view('edit_customer', compact('customer'));
+        return view('shaby_customersedit_customer', compact('customer'));
     }
 
     public function update(Request $request, $id)

@@ -5,6 +5,7 @@
     <title>{{ isset($voucher) ? 'Edit Voucher' : 'Add Voucher' }}</title>
 </head>
 <body>
+    @include('partials.navbar')
     <h1>{{ isset($voucher) ? 'Edit Voucher' : 'Add New Voucher' }}</h1>
 
     <form action="{{ isset($voucher) ? route('vouchers.update', $voucher->id) : route('vouchers.store') }}" method="POST">

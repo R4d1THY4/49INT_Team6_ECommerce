@@ -11,13 +11,13 @@ class VoucherController extends Controller
     public function index()
     {
         $vouchers = Voucher::all();
-        return view('vouchers.index', compact('vouchers'));
+        return view('radit_vouchers.index', compact('vouchers'));
     }
 
     // Opens empty form for creating a new voucher
     public function create()
     {
-        return view('vouchers.form');
+        return view('radit_vouchers.form');
     }
 
     // Replaces InputData.php INSERT query
@@ -30,7 +30,7 @@ class VoucherController extends Controller
     // Opens pre-filled form for editing an existing voucher
     public function edit(Voucher $voucher)
     {
-        return view('vouchers.form', compact('voucher'));
+        return view('radit_vouchers.form', compact('voucher'));
     }
 
     // Replaces InputData.php UPDATE query

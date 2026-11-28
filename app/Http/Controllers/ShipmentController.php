@@ -11,7 +11,7 @@ class ShipmentController extends Controller
     public function index()
     {
         $shipments = Shipment::orderBy('id', 'desc')->get();
-        return view('shipments.index', compact('shipments'));
+        return view('intan_shipments.index', compact('shipments'));
     }
 
     public function create()

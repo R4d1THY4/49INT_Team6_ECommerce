@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset('IntanStyleSheet.css') }}">
 </head>
 <body>
+    @include('partials.navbar')
 
     <h1>Shipment List</h1>
 
