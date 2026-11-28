@@ -27,6 +27,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
     Route::post('/customers-reset', [CustomerController::class, 'resetAll'])->name('customers.reset');
     Route::resource('shipments', ShipmentController::class)->except(['show']);
+
+    Route::view('/catalog', 'catalog.index')->name('catalog.index');
+    Route::view('/products', 'catalog.products')->name('catalog.products');
+    Route::view('/products/nike-air-max', 'catalog.product-detail')->name('catalog.nike');
+    Route::view('/products/adidas-ultraboost', 'catalog.adidas-detail')->name('catalog.adidas');
+    Route::view('/brands', 'catalog.brands')->name('catalog.brands');
 });
 
 require __DIR__.'/auth.php';
