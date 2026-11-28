@@ -2,6 +2,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShipmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update');
     Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
     Route::post('/customers-reset', [CustomerController::class, 'resetAll'])->name('customers.reset');
+    Route::resource('shipments', ShipmentController::class)->except(['show']);
 });
 
 require __DIR__.'/auth.php';
